@@ -21,7 +21,7 @@ def main():
         path=args.path,
         shell=args.shell,
         name=args.name,
-        command=args.command,
+        commands=args.command,
         logger=logger
     )
 

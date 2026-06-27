@@ -2,11 +2,12 @@ from subprocess import run
 from logging import Logger
 from subprocess import DEVNULL
 from coderunner.utils import absolute_path
+from coderunner.utils import handle_commands
 
 WORKSPACE = "/workspace"
 
 
-def run_container(image: str, path: str, shell: str, command: list[str] | None, name: str,
+def run_container(image: str, path: str, shell: str, commands: list[list[str]] | None, name: str,
                   logger: Logger):
     local_path = absolute_path(path)
 
@@ -26,15 +27,16 @@ def run_container(image: str, path: str, shell: str, command: list[str] | None, 
         image
     ]
 
-    if command:
+    if commands:
         logger.info("Running Commands")
-        docker_command += command
+        commands_as_string = handle_commands(commands)
+        docker_command += ["bash", "-c", commands_as_string]
     else:
         logger.info("Opening Interactive shell")
         docker_command.append(shell)
 
     logger.info("Running Docker container...")
-    logger.info(" ".join(docker_command))
+    logger.info(f"running docker command: {docker_command}")
 
     run(docker_command)
 

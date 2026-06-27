@@ -34,8 +34,8 @@ def parse_arguments():
 
     parser.add_argument(
         "--command",
-        required=False,
-        nargs=REMAINDER,
+        action="append",
+        nargs="+",
         help="Command to run inside the container"
     )
 
