@@ -99,17 +99,14 @@ coderunner --image python:3.12 --path . --verbose
 
 | Flag | Description |
 |------|------------|
-| --image | Docker image to use |
+| --image | Docker image to use, if not exists on the machine the project will pull it automaticllay |
 | --path | Local project path |
 | --command | Command(s) to run |
-| --verbose | Enable debug logs |
+| --name | Set name to the created container |
 
 ---
 
 ## 🚀 Future Improvements
-
-- coderunner init
 - config file support (.coderunner.yml)
-- port mapping
 - environment variables
 - prettier logs (Rich)
