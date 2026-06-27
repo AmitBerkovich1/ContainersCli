@@ -13,7 +13,6 @@ It allows developers to execute code in isolated environments without installing
 - 📦 Auto-pull Docker images if missing locally
 - 🧑‍💻 Interactive mode (open shell inside container)
 - ⚡ Run single commands or multiple-step workflows
-- 🧾 Structured logging with debug mode
 - 🧪 Validation of environment (Docker, paths, etc.)
 
 ---
@@ -76,13 +75,6 @@ coderunner --image python:3.12 --path . \
   --command pytest \
   --command python main.py
 ```
-
-### Debug mode
-
-```bash
-coderunner --image python:3.12 --path . --verbose
-```
-
 ---
 
 ## 🧱 How It Works
