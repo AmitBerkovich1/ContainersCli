@@ -1,7 +1,7 @@
 from subprocess import run
 from logging import Logger
 from subprocess import DEVNULL
-from utils import absolute_path
+from coderunner.utils import absolute_path
 
 WORKSPACE = "/workspace"
 

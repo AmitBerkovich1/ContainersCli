@@ -1,8 +1,8 @@
 from logging import INFO
-from cli import parse_arguments
-from validation import validate
-from docker_runner import run_container
-from logger import setup_logger
+from coderunner.cli import parse_arguments
+from coderunner.validation import validate
+from coderunner.docker_runner import run_container
+from coderunner.logger import setup_logger
 
 
 def main():

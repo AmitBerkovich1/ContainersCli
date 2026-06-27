@@ -1,0 +1,6 @@
+[project]
+name = "coderunner"
+version = "0.1.0"
+
+[project.scripts]
+coderunner = "coderunner.main:main"
