@@ -1,9 +1,10 @@
-import argparse
-import uuid
+from argparse import ArgumentParser
+from argparse import REMAINDER
+from uuid import uuid4
 
 
 def parse_arguments():
-    parser = argparse.ArgumentParser(
+    parser = ArgumentParser(
         description="Run Your Local Code Easily On a Container"
     )
 
@@ -27,14 +28,14 @@ def parse_arguments():
 
     parser.add_argument(
         "--name",
-        default=str(uuid.uuid4()),
+        default=str(uuid4()),
         help="Name of the created container"
     )
 
     parser.add_argument(
         "--command",
         required=False,
-        nargs=argparse.REMAINDER,
+        nargs=REMAINDER,
         help="Command to run inside the container"
     )
 

@@ -1,4 +1,6 @@
-import subprocess
+from subprocess import run
+from subprocess import DEVNULL
+from subprocess import DEVNULL
 from utils import absolute_path
 
 WORKSPACE = "/workspace"
@@ -30,14 +32,14 @@ def run_container(image: str, path: str, shell: str, command: list[str] | None, 
     print(" ".join(docker_command))
     print()
 
-    subprocess.run(docker_command)
+    run(docker_command)
 
 
 def image_exists(image: str):
-    result = subprocess.run(
+    result = run(
         ["docker", "image", "inspect", image],
-        stdout=subprocess.DEVNULL,
-        stderr=subprocess.DEVNULL
+        stdout=DEVNULL,
+        stderr=DEVNULL
     )
 
     return result.returncode == 0
@@ -49,4 +51,4 @@ def pull_image(image: str):
         return
 
     print(f"Pulling {image} ...")
-    subprocess.run(["docker", "pull", image], check=True)
+    run(["docker", "pull", image], check=True)

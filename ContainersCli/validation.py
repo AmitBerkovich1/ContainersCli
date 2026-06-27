@@ -1,6 +1,6 @@
 from pathlib import Path
-import shutil
-import sys
+from shutil import which
+from sys import exit
 
 
 def validate(args):
@@ -13,14 +13,14 @@ def validate_directory(path):
 
     if not project.exists():
         print(f"Directory '{path}' does not exist.")
-        sys.exit(1)
+        exit(1)
 
     if not project.is_dir():
         print(f"'{path}' is not a directory.")
-        sys.exit(1)
+        exit(1)
 
 
 def validate_docker_installed():
-    if shutil.which("docker") is None:
+    if which("docker") is None:
         print("Docker is not installed or not in PATH.")
-        sys.exit(1)
+        exit(1)
