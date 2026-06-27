@@ -1,4 +1,5 @@
 from pathlib import Path
+from shlex import join
 
 
 def absolute_path(path: str) -> str:
@@ -6,7 +7,4 @@ def absolute_path(path: str) -> str:
 
 
 def handle_commands(command_list: list[list[str]]) -> str:
-    commands_as_string = ""
-    for commands in command_list:
-        commands_as_string += commands[0] + " && "
-    return commands_as_string[:-3]
+    return " && ".join(join(cmd) for cmd in command_list)
