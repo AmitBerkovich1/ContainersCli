@@ -23,16 +23,18 @@ It allows developers to execute code in isolated environments without installing
 ContianerCli/
 │
 ├── ContianerCli/
-│   ├── .gitigonre
-│   ├── main.py
-│   ├── cli.py
-│   ├── docker_runner.py
-│   ├── validation.py
-│   ├── utils.py
-│   └── logger.py
+    coderunner/
+  │   ├── __init__.py
+  │   ├── main.py
+  │   ├── cli.py
+  │   ├── docker_runner.py
+  │   ├── validation.py
+  │   ├── utils.py
+  │   └── logger.py
 │
 ├── pyproject.toml
-└── README.md
+├── .gitignore
+└──README.md
 ```
 
 ---
@@ -102,3 +104,35 @@ coderunner --image python:3.12 --path . \
 - config file support (.coderunner.yml)
 - environment variables
 - prettier logs (Rich)
+
+## Real Exampke
+ Let's say I have python falls, called main.py in the following path
+ ```bash
+ C:\Users\amitb\test-projects\hello
+ ```
+ The only written code in the file is a simple:
+ ```python
+ print("Hello World")
+ ```
+
+We can run the following application with two commands:
+
+- Run Command inside a container
+```bash
+coderunner --image python:3.12 --path C:\Users\amitb\test-projects\hello --name berko-dev
+```
+
+This will create a container called berko-dev in our docker <br/>
+![InDockerDesktop](images/berko-container.png) <br />
+and will open for us the container's terminal to run commands in <br/>
+![InOurTerminal](images/example1.png)
+
+- Run command with the cli
+<br />
+Let's say we want to run the main.py file and print Done! when we finished <br/>
+We can simply do that with the following command
+```bash
+ coderunner --image python:3.12 --path C:\Users\amitb\test-projects\hello --command python main.py --command echo Done!
+```
+The output will be as follows:
+![Output](images/example2.png)
