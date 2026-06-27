@@ -130,9 +130,10 @@ and will open for us the container's terminal to run commands in <br/>
 - Run command with the cli
 <br />
 Let's say we want to run the main.py file and print Done! when we finished <br/>
-We can simply do that with the following command
+We can simply do that with the following command <br />
+
 ```bash
  coderunner --image python:3.12 --path C:\Users\amitb\test-projects\hello --command python main.py --command echo Done!
 ```
-The output will be as follows:
+The output will be as follows: <br />
 ![Output](images/example2.png)
