@@ -4,27 +4,33 @@ from utils import absolute_path
 WORKSPACE = "/workspace"
 
 
-def run_container(image: str, path: str, shell: str):
+def run_container(image: str, path: str, shell: str, command: list[str] | None, name: str):
     local_path = absolute_path(path)
 
-    command = [
+    docker_command = [
         "docker",
         "run",
+        "--name",
+        name,
         "--rm",
         "-it",
         "-v",
         f"{local_path}:{WORKSPACE}",
         "-w",
         WORKSPACE,
-        image,
-        shell
+        image
     ]
 
+    if command:
+        docker_command += command
+    else:
+        docker_command.append(shell)
+
     print("\nRunning Docker container...\n")
-    print(" ".join(command))
+    print(" ".join(docker_command))
     print()
 
-    subprocess.run(command)
+    subprocess.run(docker_command)
 
 
 def image_exists(image: str):

@@ -11,7 +11,9 @@ def main():
     run_container(
         image=args.image,
         path=args.path,
-        shell="bash"
+        shell=args.shell,
+        name=args.name,
+        command=args.command
     )
 
 
