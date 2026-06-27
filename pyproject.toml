@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "zappa"
+version = "0.1.0"
+description = "Run code inside Docker containers via CLI, named afer FireFly GOAT and legend"
+
+dependencies = []
+
+[project.scripts]
+zappa = "ContainersCli.main:main"
