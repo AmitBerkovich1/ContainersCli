@@ -106,7 +106,7 @@ coderunner --image python:3.12 --path . \
 - prettier logs (Rich)
 
 ## Real Exampke
- Let's say I have python falls, called main.py in the following path
+ Let's say I have python files, called main.py in the following path
  ```bash
  C:\Users\amitb\test-projects\hello
  ```
